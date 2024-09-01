@@ -18,7 +18,7 @@ git clone https://github.com/dylhack/trackboard.git
 bundle
 bin/rails db:setup
 # Create an admin account
-ruby scripts/addadmin.rb
+ruby script/addadmin.rb
 bin/dev
 ```
 
