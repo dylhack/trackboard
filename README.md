@@ -3,18 +3,15 @@
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
-# Requirements
-
-- Ruby >= 3.3.0
-- SQLite3
-- Ruby Vips
-
 # Setup
 
-This is the development setup process. For production use the Dockerfile.
+This is the development setup process. For production use the Dockerfile and env.
+
+- [How to setup Ruby on Rails](https://gorails.com/setup/windows/11)
 
 ```sh
 git clone https://github.com/dylhack/trackboard.git
+cd trackboard
 bin/setup
 # Setup your .env!
 cp .env.example .env
