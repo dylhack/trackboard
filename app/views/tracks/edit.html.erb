@@ -10,6 +10,8 @@
   </div>
 <% end %>
 
-<div class="w-2/3 mx-auto">
-  <%= render "form", project: @project, track: @track %>
+<div class="w-full flex flex-col items-center">
+  <div class="max-w-96">
+    <%= render "form", project: @project, track: @track %>
+  </div>
 </div>

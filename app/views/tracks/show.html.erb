@@ -28,11 +28,6 @@
               class: "clicky rounded-lg py-2 px-3 bg-purple-400 inline-block font-medium" do %>
           <%= icon(:pencil, class: "size-6") %>
         <% end %>
-        <%= destroy_btn([@project, @track], t("confirm_delete", thing: @project.name),
-                        "aria-label": t("project.track.delete"),
-                        class: "clicky rounded-lg py-2 px-3 bg-red-400") do %>
-          <%= icon(:trash, class: "size-6") %>
-        <% end %>
       <% end %>
     </div>
   </div>
