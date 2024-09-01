@@ -3,7 +3,6 @@ class TracksController < ApplicationController
   before_action :require_admin, except: [ :index, :show ]
   before_action :set_track, only: %i[ show edit update destroy ]
 
-  # GET /tracks or /tracks.json
   def index
     respond_to do |format|
       format.html { redirect_to project_url(@project) }
@@ -14,20 +13,16 @@ class TracksController < ApplicationController
     end
   end
 
-  # GET /tracks/1 or /tracks/1.json
   def show
   end
 
-  # GET /tracks/new
   def new
     @track = @project.tracks.new(user: Current.user)
   end
 
-  # GET /tracks/1/edit
   def edit
   end
 
-  # POST /tracks or /tracks.json
   def create
     @track = @project.tracks.new(track_params)
 
@@ -42,7 +37,6 @@ class TracksController < ApplicationController
     end
   end
 
-  # PATCH/PUT /tracks/1 or /tracks/1.json
   def update
     respond_to do |format|
       if @track.update(track_params)
@@ -55,7 +49,6 @@ class TracksController < ApplicationController
     end
   end
 
-  # DELETE /tracks/1 or /tracks/1.json
   def destroy
     @track.destroy!
 
@@ -66,12 +59,10 @@ class TracksController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_track
       @track = @project.tracks.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def track_params
       params.require(:track).permit(:name, :description, :status, :slug, :song_type).tap do |p|
         p[:user] = Current.user

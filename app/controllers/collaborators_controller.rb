@@ -3,25 +3,20 @@ class CollaboratorsController < ApplicationController
   include TrackScoped
   before_action :set_collaborator, only: %i[ show edit update destroy ]
 
-  # GET /collaborators or /collaborators.json
   def index
     @collaborators = @track.collaborators.all
   end
 
-  # GET /collaborators/1 or /collaborators/1.json
   def show
   end
 
-  # GET /collaborators/new
   def new
     @collaborator = @track.collaborators.new
   end
 
-  # GET /collaborators/1/edit
   def edit
   end
 
-  # POST /collaborators or /collaborators.json
   def create
     @collaborator = @track.collaborators.new(collaborator_params)
 
@@ -36,7 +31,6 @@ class CollaboratorsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /collaborators/1 or /collaborators/1.json
   def update
     respond_to do |format|
       if @collaborator.update(collaborator_params)
@@ -49,7 +43,6 @@ class CollaboratorsController < ApplicationController
     end
   end
 
-  # DELETE /collaborators/1 or /collaborators/1.json
   def destroy
     @collaborator.destroy!
 
@@ -60,12 +53,10 @@ class CollaboratorsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_collaborator
       @collaborator = @track.collaborators.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def collaborator_params
       params.require(:collaborator).permit(:track_id, :user_id)
     end
