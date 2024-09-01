@@ -42,7 +42,7 @@
   <%= t("collaborators") %>
 </h1>
 
-<div class="flex flex-col justify-center gap-2">
+<div class="flex flex-col justify-center gap-2 mb-4">
   <% @track.collaborators.each do |collaborator| %>
     <%= render collaborator %>
   <% end %>
