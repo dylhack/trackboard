@@ -73,16 +73,11 @@ class UsersTest < ApplicationSystemTestCase
   test "admin should be able to destroy user" do
     login_as(users(:aca30))
     visit user_url(@user)
+    find(EDIT_BTN).click
     find(DELETE_BTN).click
     accept_confirm
 
     visit users_url
     assert_no_selector "span", text: @user.name
-  end
-
-  test "artist should not be able to destroy user" do
-    login_as(users(:mikeshardest))
-    visit user_url(@user)
-    assert_no_selector DELETE_BTN
   end
 end

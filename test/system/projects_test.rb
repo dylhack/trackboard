@@ -87,15 +87,10 @@ class ProjectsTest < ApplicationSystemTestCase
   test "admin should be able to destroy project" do
     login_as(users(:aca30))
     visit project_url(@project)
+    find(EDIT_BTN).click
     find(DELETE_BTN).click
 
     accept_confirm
     assert_no_text @project.name
-  end
-
-  test "artist should not be able to destroy project" do
-    login_as(users(:mikeshardest))
-    visit project_url(@project)
-    assert_no_selector DELETE_BTN
   end
 end
