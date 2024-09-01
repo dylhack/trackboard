@@ -39,11 +39,18 @@
     </div>
   </details>
 
-  <div class="flex flex-row w-full justify-end inline">
+  <div class="flex flex-row w-full gap-4 justify-end inline">
+    <% if track.persisted? && Current.user.admin? %>
+      <%= destroy_btn([track.project, track], t("confirm_delete", thing: track.name),
+                      "aria-label": t("project.track.delete"),
+                      class: "btn clicky rounded-lg py-2 px-4 bg-red-400") do %>
+        <%= icon(:trash, class: "size-6") %>
+      <% end %>
+    <% end %>
     <%= form.button(type: "submit",
                     "aria-label": t("project.track.save"),
-                    class: "clicky rounded-lg py-1 px-3 bg-violet-500 text-white font-medium cursor-pointer") do %>
-      <%= icon(:check, class: "size-8") %>
+                    class: "btn clicky rounded-lg py-2 px-4 bg-violet-500 text-white font-medium cursor-pointer") do %>
+      <%= icon(:check, class: "size-6") %>
     <% end %>
   </div>
 <% end %>

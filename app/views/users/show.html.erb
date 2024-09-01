@@ -11,9 +11,6 @@
         <%= link_to edit_user_path(@user), "aria-label": t("user.edit"), class: "rounded-lg py-2 px-3 bg-purple-400 inline-block font-medium" do %>
           <%= icon(:pencil, class: "size-6") %>
         <% end %>
-        <%= destroy_btn(@user, t("confirm_delete", thing: @user.name), "aria-label": t("user.delete"), class: "rounded-lg py-2 px-3 bg-red-400") do %>
-          <%= icon(:trash, class: "size-6") %>
-        <% end %>
       <% end %>
     </div>
   </div>
@@ -36,7 +33,7 @@
   <div data-controller="search" class="flex flex-col gap-4 items-center min-w-0 w-full">
     <h1 class="font-bold text-4xl"><%= t("project.tracks") %></h1>
     <input type="search" autocomplete="off" placeholder="<%= t("project.tracks") %>" data-action="search#search" class="bg-neutral-600/25 block w-full shadow rounded-md outline-none border-none focus:ring-violet-400 px-3 py-2 text-white">
-    <div class="flex flex-col min-w-0 w-full gap-2">
+    <div class="flex flex-col min-w-0 w-full gap-2 mb-4">
       <% @user.all_tracks.each do |track| %>
         <%= render track %>
       <% end %>

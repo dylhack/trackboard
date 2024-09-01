@@ -38,10 +38,13 @@
     </div>
   <% end %>
 
-  <div class="w-full flex flex-row justify-end">
+  <div class="w-full flex flex-row gap-4 justify-end">
+    <%= destroy_btn(user, t("confirm_delete", thing: user.name), "aria-label": t("user.delete"), class: "rounded-lg py-2 px-4 bg-red-400") do %>
+      <%= icon(:trash, class: "size-6") %>
+    <% end %>
     <%= form.button(type: "submit",
                     "aria-label": t("user.save"),
-                    class: "btn clicky rounded-lg py-1 px-3 bg-violet-500 inline-block font-medium") do %>
+                    class: "btn clicky rounded-lg py-2 px-4 bg-violet-500 inline-block font-medium") do %>
       <%= icon(:check, class: "size-6") %>
     <% end %>
   </div>

@@ -15,10 +15,11 @@ This is the development setup process. For production use the Dockerfile.
 
 ```sh
 git clone https://github.com/dylhack/trackboard.git
-bundle
-bin/rails db:setup
+bin/setup
+# Setup your .env!
+cp .env.example .env
 # Create an admin account
-ruby scripts/addadmin.rb
+ruby script/addadmin.rb
 bin/dev
 ```
 

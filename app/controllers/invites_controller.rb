@@ -2,25 +2,20 @@ class InvitesController < ApplicationController
   before_action :require_admin, except: %i[ index show ]
   before_action :set_invite, only: %i[ show edit update destroy ]
 
-  # GET /invites or /invites.json
   def index
     @invite = Invite.new(role: "artist")
     @invites = Invite.all
   end
 
-  # GET /invites/1 or /invites/1.json
   def show
   end
 
-  # GET /invites/new
   def new
   end
 
-  # GET /invites/1/edit
   def edit
   end
 
-  # POST /invites or /invites.json
   def create
     @invite = Invite.new(expires_at: (Time.now + 1.week).beginning_of_day)
     @invite.role = invite_params[:role] if Current.user.admin?
@@ -38,7 +33,6 @@ class InvitesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /invites/1 or /invites/1.json
   def update
     respond_to do |format|
       if @invite.update(invite_params)
@@ -51,7 +45,6 @@ class InvitesController < ApplicationController
     end
   end
 
-  # DELETE /invites/1 or /invites/1.json
   def destroy
     require_admin
     @invite.destroy!
@@ -63,12 +56,10 @@ class InvitesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_invite
       @invite = Invite.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def invite_params
       params.require(:invite).permit(:role).tap do |whitelisted|
         whitelisted[:discord] = params[:invite][:discord].slice(:id, :username, :avatar_url) if params[:invite][:discord].present?
