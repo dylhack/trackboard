@@ -1,5 +1,5 @@
+<% content_for :title, t("navigation.invites") %>
 <% new_invite_form = render "form", invite: Invite.new(role: "artist") %>
-<% content_for :title, "Invites" %>
 <% content_for :header do %>
   <div class="py-5 px-5 w-full flex flex-row items-center sm:justify-between gap-4">
     <%= nav_button %>

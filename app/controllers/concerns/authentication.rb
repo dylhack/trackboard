@@ -36,7 +36,7 @@ module Authentication
 
     def require_admin
       unless authenticated? && Current.user.admin?
-        redirect_back fallback_location: root_path, notice: t("sessions.unauthorized")
+        redirect_back fallback_location: root_path, notice: t("session.unauthorized")
       end
     end
 

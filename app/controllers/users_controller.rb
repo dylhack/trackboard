@@ -60,7 +60,7 @@ class UsersController < ApplicationController
     def require_ownership
       return if Current.user.admin? || @user.me?
 
-      redirect_back fallback_location: root_path, notice: t("sessions.unauthorized")
+      redirect_back fallback_location: root_path, notice: t("session.unauthorized")
     end
 
     def user_params

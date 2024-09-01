@@ -35,9 +35,9 @@
           <%= link_to Current.user do %>
             <span class="text-xl w-full font-bold truncate"><%= Current.user.name %></span>
           <% end %>
-          <%= destroy_btn session_path, t("sessions.confirm_logout"), class: "clicky flex flex-row max-sm:items-center w-full text-white hover:text-red-300" do %>
+          <%= destroy_btn session_path, t("session.confirm_logout"), class: "clicky flex flex-row max-sm:items-center w-full text-white hover:text-red-300" do %>
             <%= icon(:arrow_left_end_on_rectangle, class: "size-6") %>
-            <span><%= t("sessions.logout") %></span>
+            <span><%= t("session.logout") %></span>
           <% end %>
         </div>
       </div>

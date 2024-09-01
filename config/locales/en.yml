@@ -28,12 +28,14 @@
 #       enabled: "ON"
 
 en:
+  editing: Editing %{thing}
   confirm_delete: Are you sure you want to delete %{thing}?
   collaborators: Collaborators
   navigation:
     invites: Invites
     projects: Projects
     access: Access
+    users: Users
     toggle: Back
   projects: Projects
   project:
@@ -71,7 +73,8 @@ en:
     save: Save User
     delete: Delete User
     discord_id: Discord ID
-  sessions:
+  session:
+    login: Login
     logout: Logout
     confirm_logout: Are you sure you want to logout?
     unauthorized: You are not authorized to access this page.

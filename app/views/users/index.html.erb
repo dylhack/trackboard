@@ -1,9 +1,9 @@
-<% content_for :title, "Users" %>
+<% content_for :title, t("navigation.users") %>
 <% content_for :header do %>
   <div class="py-5 px-5 w-full flex flex-row items-center justify-between">
     <div class="flex flex-row gap-4 items-center">
       <%= nav_button %>
-      <h1 class="font-bold text-4xl">Users</h1>
+      <h1 class="font-bold text-4xl"><%= t("navigation.users") %></h1>
     </div>
     <% if Current.user.admin? %>
       <%= link_to new_user_path, "aria-label": t("user.new"), class: "btn clicky rounded-lg py-2 px-3 bg-violet-500 inline-block font-medium" do %>

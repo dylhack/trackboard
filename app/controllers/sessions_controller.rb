@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
   allow_unauthenticated_access only: %i[ new create ]
-  rate_limit to: 10, within: 3.minutes, only: :create, with: -> { redirect_to login_url, alert: t("sessions.fuck_off") }
+  rate_limit to: 10, within: 3.minutes, only: :create, with: -> { redirect_to login_url, alert: t("session.fuck_off") }
 
   def show
     respond_to do |format|
@@ -31,7 +31,7 @@ class SessionsController < ApplicationController
       return
     end
 
-    redirect_to login_url, alert: t("sessions.invite_required")
+    redirect_to login_url, alert: t("session.invite_required")
   end
 
   def destroy
