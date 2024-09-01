@@ -1,6 +1,6 @@
 <%= link_to user_path(user), id: dom_id(user), class: "clicky w-full flex flex-row items-center justify-between px-3 py-2 rounded-lg bg-neutral-600/25 transition-colors hover:bg-violet-400/30 hover:shadow-md" do %>
   <div class="flex flex-row min-w-0 items-center gap-2">
-    <%= user_avatar(user, class: "rounded-full aspect-square w-10") %>
+    <%= user_avatar(user, class: "rounded-full aspect-square w-10", style: "view-transition-name: #{dom_id(user)};") %>
     <span class="text-lg truncate">
       <%= user.name %>
     </span>

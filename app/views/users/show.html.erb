@@ -19,7 +19,7 @@
 <% content_for :sidebar_card do %>
   <hr>
   <div class="flex flex-col min-w-0 gap-1 w-full text-center items-center">
-    <%= user_avatar(@user, class: "rounded-full w-24") %>
+    <%= user_avatar(@user, class: "rounded-full w-24", style: "view-transition-name: #{dom_id(@user)};") %>
     <div class="flex flex-col min-w-0 w-full items-center gap-2">
       <h1 class="font-bold truncate w-full text-xl">
         <%= @user.name %>
