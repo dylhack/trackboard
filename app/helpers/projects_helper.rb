@@ -4,7 +4,7 @@ module ProjectsHelper
     options[:alt] ||= ""
     if project.cover.attached? && !project.new_record?
       options[:style] ||= "background-image: url('#{asset_path("album.webp")}'); background-size: cover; background-position: center;"
-      image_tag project.cover.variant(:default), **options
+      image_tag project.cover, **options
     else
       image_tag asset_path("album.webp"), **options
     end

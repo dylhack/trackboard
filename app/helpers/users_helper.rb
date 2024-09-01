@@ -4,7 +4,7 @@ module UsersHelper
     options[:alt] ||= ""
     if user.avatar.attached?
       options[:style] ||= "background-image: url('#{asset_path("avatar.webp")}'); background-size: cover; background-position: center;"
-      image_tag user.avatar.variant(:default), **options
+      image_tag user.avatar, **options
     else
       image_tag asset_path("avatar.webp"), **options
     end
