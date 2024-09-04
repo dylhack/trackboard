@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :invites, dependent: :destroy
   has_many :sessions, dependent: :destroy
   has_many :projects, dependent: :destroy
+  has_many :social_accounts, dependent: :destroy
   has_many :tracks, dependent: :destroy
   has_many :collaborations, class_name: "Collaborator", dependent: :destroy
   has_many :collaborated_projects, through: :collaborations, source: :project
