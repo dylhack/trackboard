@@ -8,10 +8,11 @@ This is the development setup process. For production use the Dockerfile and env
 git clone https://github.com/dylhack/trackboard.git
 cd trackboard
 bin/setup
+bin/rails db:seed
+# Create an admin account
+bin/ruby script/addadmin.rb
 # Setup your .env!
 cp .env.example .env
-# Create an admin account
-ruby script/addadmin.rb
 bin/dev
 ```
 
