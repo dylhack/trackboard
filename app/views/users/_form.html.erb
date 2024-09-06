@@ -38,6 +38,28 @@
     </div>
   <% end %>
 
+  <details class="my-5">
+    <summary class="cursor-pointer my-2">
+      <%= t("user.social_accounts") %>
+    </summary>
+    <div class="flex flex-col gap-4">
+      <div class="flex flex-row justify-end w-full">
+        <%= link_to new_user_social_account_path(Current.user), 
+          class: "px-3 py-2 bg-blue-400 rounded-lg", 
+          "aria-label": t("user.social_account.add"),
+          data: { "turbo-prefetch": false } do %>
+          <%= icon(:plus, class: "size-6") %>
+        <% end %>
+      </div>
+      <div id="social_accounts" class="flex flex-col gap-2 w-full">
+        <% social_accounts = @user.social_accounts.to_a %>
+        <% social_accounts << @user.social_accounts.new  %>
+        <% social_accounts.each do |social_account| %>
+          <%= render partial: "social_accounts/form", locals: { social_account: social_account } %>
+        <% end %>
+      </div>
+    </div>
+  </details>
   <div class="w-full flex flex-row gap-4 justify-end">
     <%= form.button(type: "submit",
                     "aria-label": t("user.save"),

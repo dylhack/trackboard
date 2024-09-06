@@ -67,6 +67,9 @@ en:
     one: Invite
     other: "%{count} Invites"
   user:
+    social_accounts: Social Accounts
+    social_account:
+      add: Add Social Account
     name: Username
     edit: Edit User
     new: New User

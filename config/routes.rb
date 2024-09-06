@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   get "/login", to: "sessions#new"
   resource :session, except: %i[new]
 
-  resources :users
+  resources :users do
+    resources :social_accounts, only: %i[new index show]
+  end
   resources :invites, except: %i[new show edit update]
   resources :projects do
     resources :tracks do

@@ -1,0 +1,11 @@
+<%= fields_for("social_accounts[]", social_account, index: nil) do |f| %>
+  <div data-controller="icon" data-icon-default-value="<%= social_account.link || "default" %>" class="flex flex-row items-center gap-2 bg-neutral-600/25 rounded-md px-3 py-2 text-white">
+    <% if social_account.id %>
+      <%= f.hidden_field :id, value: social_account.id %>
+    <% end %>
+    <%= f.label(:link) do %>
+      <%= icon(:link, data: { "icon-target": "output" }, class: "size-6 text-white") %>
+    <% end %>
+    <%= f.text_field(:link, data: { action: "icon#change" }, placeholder: "https://youtube.com/@user", value: social_account.link, class: "w-full bg-neutral-600/25 block shadow rounded-md outline-none border-none focus:ring-violet-400 px-3 py-2 text-white") %>
+  </div>
+<% end %>

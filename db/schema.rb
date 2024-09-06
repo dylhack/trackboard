@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2024_08_26_013550) do
+ActiveRecord::Schema[8.0].define(version: 2024_09_04_151654) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -79,6 +79,14 @@ ActiveRecord::Schema[8.0].define(version: 2024_08_26_013550) do
     t.index ["user_id"], name: "index_sessions_on_user_id"
   end
 
+  create_table "social_accounts", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "link"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_social_accounts_on_user_id"
+  end
+
   create_table "tracks", force: :cascade do |t|
     t.integer "project_id", null: false
     t.integer "user_id", null: false
@@ -111,6 +119,7 @@ ActiveRecord::Schema[8.0].define(version: 2024_08_26_013550) do
   add_foreign_key "invites", "users"
   add_foreign_key "projects", "users"
   add_foreign_key "sessions", "users"
+  add_foreign_key "social_accounts", "users"
   add_foreign_key "tracks", "projects"
   add_foreign_key "tracks", "users"
 end
