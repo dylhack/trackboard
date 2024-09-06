@@ -1,11 +1,10 @@
 Rails.application.routes.draw do
   get "auth/:provider/callback", to: "sessions#create"
   get "/login", to: "sessions#new"
-  resources :users
   resource :session, except: %i[new]
-  get "login", to: "sessions#new"
-  resources :invites, except: %i[new show edit update]
 
+  resources :users
+  resources :invites, except: %i[new show edit update]
   resources :projects do
     resources :tracks do
       resources :collaborators
