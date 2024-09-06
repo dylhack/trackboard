@@ -43,6 +43,14 @@ class User < ApplicationRecord
     role == "admin"
   end
 
+  def owns?(model, attr = :user)
+    if model.is_a?(User)
+      model == self
+    else
+      model.send(attr) == self
+    end
+  end
+
   def current_user?
     self == Current.user
   end
